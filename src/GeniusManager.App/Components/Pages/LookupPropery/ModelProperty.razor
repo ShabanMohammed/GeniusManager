@@ -1,0 +1,29 @@
+﻿@page "/model/{namePage}"
+@page "/model/{namePage}/{id:long}"
+@using GeniusManager.App.Components.Pages.LookupPropery.GenericPages
+@using GeniusManager.Domain.Entities.Lookups
+@rendermode InteractiveServer
+
+<PageTitle>النموذج</PageTitle>
+@if (namePage == "list")
+{
+    <GenericTable TEntity="Model" Title="النموذح" />
+}
+else if ((namePage == "addNew"))
+{
+
+    <GenericAddNew TEntity="Model" Title="النموذج" />
+}
+else if (namePage == "update")
+{
+    <GenericEdit TEntity="Model" Title="النموذج" id="id" />
+}
+else if ((namePage == "deleteconfirm"))
+{
+    <GenericDeleteConfirm TEntity="Model" Title="النموذج" id="id" />
+}
+@code {
+
+    [Parameter] public string namePage { get; set; } = "list";
+    [Parameter] public long id { get; set; }
+}

@@ -1,0 +1,63 @@
+﻿@using GeniusManager.Application.DTO
+@using GeniusManager.Application.Services
+@using GeniusManager.Domain.Common
+@typeparam TEntity where TEntity : BaseEntity, new()
+@inject NavigationManager NavigationManager
+@inject GenericService<TEntity> Service
+
+
+
+<div class="card shadow-sm mt-3">
+    <div class="card-header bg-primary text-white">
+        <h5 class ="mb-0">تعديل @Title</h5>
+    </div>
+    <div class="card-body">
+        <EditForm Model="entity" OnValidSubmit="Update">
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" />
+
+            <div class="mb-3">
+                <label class="form-label">الاسم</label>
+                <InputText class="form-control" @bind-Value="entity.Name" />
+                <ValidationMessage For="@(() => entity.Name)" class="text-danger" />
+            </div>
+
+            <div class="mt-3 d-flex justify-content-end">
+                <button type="submit" class="btn btn-success m-2">
+                    <i class="bi bi-save"></i> حفظ
+                </button>
+                <button type="button" @onclick="cancel" class="btn btn-outline-secondary m-2">
+                    <i class="bi bi-x-circle-fill"></i> الغاء
+                </button>
+            </div>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = "Generic Table";
+    [SupplyParameterFromForm] public LookupDto entity { get; set; } = null!;
+    [Parameter] public long id { get; set; }
+    private string entityName = typeof(TEntity).Name.ToLower();
+   
+
+    protected override async Task OnInitializedAsync()
+    {
+        entity = await Service.GetByIdAsync(id);
+
+    }
+
+    private async Task Update()
+    {
+        
+            await Service.UpadateAsync(entity);
+        entity ??= new();
+            NavigationManager.NavigateTo($"/{entityName}/list");
+        }
+
+    private void cancel()
+    {
+        NavigationManager.NavigateTo($"/{entityName}/list");
+    }
+}
+

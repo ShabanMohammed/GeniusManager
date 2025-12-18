@@ -1,0 +1,84 @@
+﻿<div class="nav-item mt-2">
+    <!-- القائمة الرئيسية -->
+    <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#definitionsMenu" role="button">
+        <i class="bi bi-list-check me-2"></i> التعريفات
+    </a>
+
+    <!-- القوائم الفرعية داخل التعريفات -->
+    <div class="collapse ps-3" id="definitionsMenu">
+
+        <!-- البيانات الشخصية -->
+        <div class="nav-item mt-2">
+            <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#personalDataMenu" role="button">
+                <i class="bi bi-person-lines-fill me-2"></i> البيانات الشخصية
+            </a>
+            <div class="collapse ps-3" id="personalDataMenu">
+                <NavLink class="nav-link text-white-50" href="/gender/list">نوع الجنس</NavLink>
+                <NavLink class="nav-link text-white-50" href="/religion/list">الديانة</NavLink>
+                <NavLink class="nav-link text-white-50" href="/nationality/list">الجنسية</NavLink>
+                <NavLink class="nav-link text-white-50" href="/maritalstatus/list">الحالة الاجتماعية</NavLink>
+            </div>
+        </div>
+
+        <!-- الحالة الاجتماعية والوظيفية -->
+        <div class="nav-item mt-2">
+            <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#statusMenu" role="button">
+                <i class="bi bi-people-fill me-2"></i> الحالة الوظيفية
+            </a>
+            <div class="collapse ps-3" id="statusMenu">
+                <NavLink class="nav-link text-white-50" href="/model/list">النموذج</NavLink>
+                <NavLink class="nav-link text-white-50" href="/appointmenttype/list">نوع التعيين</NavLink>
+                <NavLink class="nav-link text-white-50" href="/employeestatus/list">حالة الموظف</NavLink>
+            </div>
+        </div>
+
+        <!-- المؤهلات الدراسية -->
+        <div class="nav-item mt-2">
+            <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#educationMenu" role="button">
+                <i class="bi bi-mortarboard-fill me-2"></i> المؤهلات الدراسية
+            </a>
+            <div class="collapse ps-3" id="educationMenu">
+                <NavLink class="nav-link text-white-50" href="/qualification/list">المؤهل الدراسي</NavLink>
+                <NavLink class="nav-link text-white-50" href="/specialization/list">التخصص الدراسي</NavLink>
+                <NavLink class="nav-link text-white-50" href="/educationlevel/list">المستوى التعليمي</NavLink>
+            </div>
+        </div>
+
+        <!-- الوظائف والتنظيم -->
+        <div class="nav-item mt-2">
+            <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#jobsMenu" role="button">
+                <i class="bi bi-briefcase-fill me-2"></i> الوظائف والتنظيم
+            </a>
+            <div class="collapse ps-3" id="jobsMenu">
+                <NavLink class="nav-link text-white-50" href="/jobgrade/list">الدرجة الوظيفية</NavLink>
+                <NavLink class="nav-link text-white-50" href="/job/list">الوظيفة</NavLink>
+                <NavLink class="nav-link text-white-50" href="/jobgroup/list">المجموعة النوعية</NavLink>
+                <NavLink class="nav-link text-white-50" href="/jobcareer/list">المسار الوظيفى</NavLink>
+            </div>
+        </div>
+
+        <!-- الهيكل التنظيمي -->
+        <div class="nav-item mt-2">
+            <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#orgstructure" role="button">
+                <i class="bi bi-diagram-3 me-2"></i> الهيكل التنظيمي
+            </a>
+            <div class="collapse ps-3" id="orgstructure">
+                <NavLink class="nav-link text-white-50" href="/administrativelevel/list">المستوى الإداري</NavLink>
+                <NavLink class="nav-link text-white-50" href="/organizationalunit/list">الوحدة التنظيمية</NavLink>
+                <NavLink class="nav-link text-white-50" href="/branches/list">المراكز والفروع</NavLink>
+                <NavLink class="nav-link text-white-50" href="/worklocations/list">مقرات العمل</NavLink>
+            </div>
+        </div>
+
+        <!-- للتوسع لاحقًا -->
+        <div class="nav-item mt-2">
+            <a class="nav-link text-white fw-bold" data-bs-toggle="collapse" href="#otherMenu" role="button">
+                <i class="bi bi-plus-circle-fill me-2"></i> تعريفات أخرى
+            </a>
+            <div class="collapse ps-3" id="otherMenu">
+                <NavLink class="nav-link text-white-50" href="/other/list">خصائص إضافية</NavLink>
+            </div>
+        </div>
+
+    </div>
+</div>

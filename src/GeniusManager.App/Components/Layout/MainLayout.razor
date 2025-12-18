@@ -1,0 +1,103 @@
+﻿@inherits LayoutComponentBase
+
+<div class="d-flex min-vh-100">
+
+    <!-- Sidebar -->
+    <div class="d-none d-lg-flex flex-column flex-shrink-0 p-3 text-white bg-primary"
+         style="width: 280px; position: sticky; top: 0; height: 100vh; overflow-y: auto;">
+
+        <!-- Logo -->
+        <a href="/" class="d-flex align-items-center mb-3 text-white text-decoration-none justify-content-center">
+            <span class="fs-4 fw-bold">
+                <img src="logo2.png" class="img-fluid" alt="الادارة العبقرية" />
+            </span>
+        </a>
+        <hr>
+
+        <!-- NavMenu فقط -->
+        <NavMenu />
+
+    </div>
+
+    <!-- Offcanvas for Mobile -->
+    <div class="offcanvas offcanvas-end bg-primary text-white" tabindex="-1" id="sidebarMenu" aria-labelledby="sidebarMenuLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title fw-bold" id="sidebarMenuLabel">Genius Manager</h5>
+            <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <NavMenu />
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="d-flex flex-column flex-grow-1 w-100">
+
+        <!-- Navbar -->
+        <header class="navbar navbar-expand-lg bg-primary sticky-top shadow-sm p-0">
+            <div class="container-fluid">
+
+                <!-- زر فتح القائمة الجانبية في الموبايل -->
+                <button class="navbar-toggler d-lg-none p-2 ms-2 text-white" type="button"
+                        data-bs-toggle="offcanvas" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Logo صغير متناسق -->
+                <a class="navbar-brand text-white fw-semibold d-lg-none mx-3" href="/">
+                    Genius Manager
+                </a>
+
+                <!-- روابط المستخدم في الأعلى -->
+                <ul class="navbar-nav flex-row ms-auto me-3 me-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownUser" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person-circle fs-5 me-1"></i> المستخدم
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="navbarDropdownUser">
+                            <li><a class="dropdown-item" href="#">الملف الشخصي</a></li>
+                            <li><a class="dropdown-item" href="#">الإعدادات</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">تسجيل الخروج</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </header>
+
+        <!-- Body -->
+        <main class="flex-grow-1 p-4 bg-light">
+            <div class="container-fluid">
+                @Body
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-secondary text-light py-1 mt-auto">
+            <div class="container">
+                <div class="row align-items-center">
+
+                    <!-- شعار الشركة -->
+                    <div class="col-md-4 text-center text-md-start mb-2 mb-md-0">
+                        <img src="GeniusLogo.png" alt="Genius Code Company"
+                             class="img-fluid" style="height:80px;" />
+                    </div>
+
+                    <!-- روابط سريعة -->
+                    <div class="col-md-4 text-center mb-2 mb-md-0">
+                        <a href="/about" class="text-light mx-2">من نحن</a>
+                        <a href="/services" class="text-light mx-2">الخدمات</a>
+                        <a href="/contact" class="text-light mx-2">اتصل بنا</a>
+                    </div>
+
+                    <!-- حقوق النشر -->
+                    <div class="col-md-4 text-center text-md-end">
+                        <small>© 2025 Genius Code Company. جميع الحقوق محفوظة.</small>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+    </div>
+</div>

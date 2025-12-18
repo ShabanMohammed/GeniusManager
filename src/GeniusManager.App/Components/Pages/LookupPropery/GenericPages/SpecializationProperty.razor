@@ -1,0 +1,29 @@
+﻿@page "/specialization/{namePage}"
+@page "/specialization/{namePage}/{id:long}"
+@using GeniusManager.App.Components.Pages.LookupPropery.GenericPages
+@using GeniusManager.Domain.Entities.Lookups
+@rendermode InteractiveServer
+
+<PageTitle>التخصص العلمى</PageTitle>
+@if (namePage == "list")
+{
+    <GenericTable TEntity="Specialization" Title="التخصص العلمى" />
+}
+else if ((namePage == "addNew"))
+{
+
+    <GenericAddNew TEntity="Specialization" Title="التخصص العلمى" />
+}
+else if (namePage == "update")
+{
+    <GenericEdit TEntity="Specialization" Title="التخصص العلمى" id="id" />
+}
+else if ((namePage == "deleteconfirm"))
+{
+    <GenericDeleteConfirm TEntity="Specialization" Title="التخصص العلمى" id="id" />
+}
+@code {
+
+    [Parameter] public string namePage { get; set; } = "list";
+    [Parameter] public long id { get; set; }
+}

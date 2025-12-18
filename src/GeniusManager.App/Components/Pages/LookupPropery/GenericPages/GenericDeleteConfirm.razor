@@ -1,0 +1,71 @@
+﻿@using GeniusManager.Application.DTO
+@using GeniusManager.Application.Services
+@using GeniusManager.Domain.Common
+@typeparam TEntity where TEntity : BaseEntity, new()
+@inject NavigationManager NavigationManager
+@inject GenericService<TEntity> Service
+
+
+<h3>@Title</h3>
+
+
+<EditForm Model="entity" OnValidSubmit="DeleteEntity" FormName="deleteEntity">
+    <DataAnnotationsValidator />
+    <ValidationSummary class="text-danger" />
+
+    <div class="card shadow-sm border-danger">
+        <div class="card-header bg-danger text-white">
+            <i class="bi bi-exclamation-triangle-fill"></i> تأكيد الحذف
+        </div>
+
+        <div class="alert alert-danger text-center">
+            <i class="bi bi-exclamation-triangle-fill"></i>
+            هل أنت متأكد أنك تريد حذف <strong>@Title : @entity.Name</strong> ؟
+        </div>
+
+
+        <div class="card-footer text-center">
+            <button type="submit" class="btn btn-danger m-1">
+                <i class="bi bi-trash-fill"></i> نعم، احذف
+            </button>
+
+            <button type="button" @onclick="cancel" class="btn btn-secondary m-1">
+                <i class="bi bi-x-circle-fill"></i> إلغاء
+            </button>
+        </div>
+    </div>
+</EditForm>
+
+@code {
+    [Parameter] public string Title { get; set; } = "Generic Table";
+    [SupplyParameterFromForm] public LookupDto entity { get; set; } = null!;
+    [Parameter] public long id { get; set; }
+    private string entityName = typeof(TEntity).Name.ToLower();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        entity = await Service.GetByIdAsync(id);
+        if (entity == null)
+        {
+            NavigationManager.NavigateTo($"/{entityName}/list");
+        }
+
+
+
+    }
+
+    private async Task DeleteEntity()
+    {
+
+        await Service.DeleteAsync(id);
+        
+        NavigationManager.NavigateTo($"/{entityName}/list");
+    }
+
+    private void cancel()
+    {
+        NavigationManager.NavigateTo($"/{entityName}/list");
+    }
+}
+

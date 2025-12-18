@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/GeniusManager.App/GeniusManager.App.csproj" />
+    <Project Path="src/GeniusManager.Application/GeniusManager.Application.csproj" />
+    <Project Path="src/GeniusManager.Domain/GeniusManager.Domain.csproj" />
+    <Project Path="src/GeniusManager.Infrastructure/GeniusManager.Infrastructure.csproj" />
+    <Project Path="src/GeniusManager.Persistence/GeniusManager.Persistence.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/GeniusManager.Tests/GeniusManager.Tests.csproj" />
+  </Folder>
+</Solution>

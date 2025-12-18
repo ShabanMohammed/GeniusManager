@@ -1,0 +1,29 @@
+﻿@page "/maritalstatus/{namePage}"
+@page "/maritalstatus/{namePage}/{id:long}"
+@using GeniusManager.App.Components.Pages.LookupPropery.GenericPages
+@using GeniusManager.Domain.Entities.Lookups
+@rendermode InteractiveServer
+
+<PageTitle>الحالة الاجتماعية</PageTitle>
+@if (namePage == "list")
+{
+    <GenericTable TEntity="MaritalStatus" Title="الحالة الاجتماعية" />
+}
+else if ((namePage == "addNew"))
+{
+
+    <GenericAddNew TEntity="MaritalStatus" Title="الحالة الاجتماعية" />
+}
+else if (namePage == "update")
+{
+    <GenericEdit TEntity="MaritalStatus" Title="الحالة الاجتماعية" id="id" />
+}
+else if ((namePage == "deleteconfirm"))
+{
+    <GenericDeleteConfirm TEntity="MaritalStatus" Title="الحالة الاجتماعية" id="id" />
+}
+@code {
+
+    [Parameter] public string namePage { get; set; } = "list";
+    [Parameter] public long id { get; set; }
+}

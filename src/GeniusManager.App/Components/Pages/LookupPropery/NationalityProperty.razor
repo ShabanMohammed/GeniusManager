@@ -1,0 +1,29 @@
+﻿@page "/Nationality/{namePage}"
+@page "/Nationality/{namePage}/{id:long}"
+@using GeniusManager.App.Components.Pages.LookupPropery.GenericPages
+@using GeniusManager.Domain.Entities.Lookups
+@rendermode InteractiveServer
+
+<PageTitle>الجنسية</PageTitle>
+@if (namePage == "list")
+{
+    <GenericTable TEntity="Nationality" Title="الجنسية" />
+}
+else if ((namePage == "addNew"))
+{
+
+    <GenericAddNew TEntity="Nationality" Title="الجنسية" />
+}
+else if (namePage == "update")
+{
+    <GenericEdit TEntity="Nationality" Title="الجنسية" id="id" />
+}
+else if ((namePage == "deleteconfirm"))
+{
+    <GenericDeleteConfirm TEntity="Nationality" Title="الجنسية" id="id" />
+}
+@code {
+
+    [Parameter] public string namePage { get; set; } = "list";
+    [Parameter] public long id { get; set; }
+}
