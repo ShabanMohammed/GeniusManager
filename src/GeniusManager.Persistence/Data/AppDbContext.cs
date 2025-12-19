@@ -23,6 +23,8 @@ namespace GeniusManager.Persistence.Data
         public DbSet<EmployeeStatus> EmployeeStatuses {  get; set; }
         public DbSet<EducationLevel> EducationLevels { get; set; }
         public DbSet<Specialization> Specializations { get; set; }
+        public DbSet<Qualification> Qualifications { get; set; }
+
         public DbSet<JobGrade> JobGrades { get; set; }
         public DbSet<JobGroup> JobGroups { get; set; }
         public DbSet<JobCareer> JobCareers { get; set; }
@@ -42,6 +44,7 @@ namespace GeniusManager.Persistence.Data
             modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<EmployeeStatus>());
             modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<EducationLevel>());
             modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<Specialization>());
+            modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<Qualification>());
             modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<JobGrade>());
             modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<JobGroup>());
             modelBuilder.ApplyConfiguration(new BaseEntityConfiguration<JobCareer>());

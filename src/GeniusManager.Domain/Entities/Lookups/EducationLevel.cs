@@ -7,5 +7,6 @@ namespace GeniusManager.Domain.Entities.Lookups
 {
     public class EducationLevel:BaseEntity
     {
+        public IEnumerable<Qualification> Qualifications { get; set; } = new List<Qualification>();
     }
 }

@@ -7,5 +7,6 @@ namespace GeniusManager.Domain.Entities.Lookups
 {
     public class Specialization :BaseEntity
     {
+        public IEnumerable<QualificationSpecialization> Qualifications { get; set; } = new List<QualificationSpecialization> ();
     }
 }
